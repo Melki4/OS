@@ -1,20 +1,14 @@
 #include "barberworker.h"
-#include <QFile>
-#include <QTextStream>
 #include <QDebug>
 
 BarberWorker::BarberWorker(int id, QObject *parent)
-    : QThread(parent), m_id(id), m_state(Offline), m_stop(false), m_clientsServed(0)
+    : QThread(parent), m_id(id), m_state(Offline), m_clientsServed(0), m_stop(false)
 {
     loadData();
     changeState(Idle);
 }
 
-BarberWorker::~BarberWorker()
-{
-    stop();
-    wait();
-}
+BarberWorker::~BarberWorker() { stop(); wait(); }
 
 void BarberWorker::assignClient(qintptr socketDescriptor)
 {
@@ -32,12 +26,8 @@ void BarberWorker::stop()
 
 void BarberWorker::loadData()
 {
-    // В реальном проекте здесь QDir::currentPath() или ресурсы qrc
-    m_greetings << "Приветствую! Я парикмахер %1. Присаживайтесь."
-                << "Здравствуйте, готовы к стрижке?";
-    m_farewells << "С вас %1 рублей."
-                << "Вот ваша сдача."
-                << "До свидания, приходите еще!";
+    m_greetings << "Приветствую! Я парикмахер %1. Присаживайтесь.";
+    m_farewells << "С вас %1 рублей." << "До свидания, приходите еще!";
     m_haircuts.append({"Кроп", 1000});
     m_haircuts.append({"Фейд", 1200});
     m_haircuts.append({"Под ноль", 500});
@@ -46,27 +36,14 @@ void BarberWorker::loadData()
 void BarberWorker::changeState(State newState)
 {
     m_state = newState;
-    QString stateStr;
-    switch(newState) {
-    case Idle: stateStr = "Ждет клиента"; break;
-    case Working: stateStr = "Стрижет"; break;
-    case Resting: stateStr = "Отдыхает"; break;
-    case Offline: stateStr = "Ушел"; break;
-    }
+    QString stateStr = (newState == Idle) ? "Ждет клиента" :
+                       (newState == Working) ? "Стрижет" :
+                       (newState == Resting) ? "Отдыхает" : "Ушел";
     emit stateChanged(m_id, stateStr);
 }
 
-bool BarberWorker::waitForClientResponse(QTcpSocket &socket, QString &response)
+void BarberWorker::run()
 {
-    if (socket.waitForReadyRead(30000)) { // Ждем ответа 30 сек
-        QTextStream in(&socket);
-        response = in.readLine();
-        return true;
-    }
-    return false;
-}
-
-void BarberWorker::run() {
     while (true) {
         qintptr descriptor = -1;
         {
@@ -78,6 +55,7 @@ void BarberWorker::run() {
             m_currentSocketDescriptor = -1;
         }
 
+        if (descriptor == -1) continue;
         changeState(Working);
         if (descriptor == -1) continue;
 
