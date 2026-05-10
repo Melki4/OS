@@ -15,7 +15,7 @@ qt_add_executable(server_part
     logger.h logger.cpp
     barberworker.h barberworker.cpp
     serverdialog.h serverdialog.cpp
-
+    listenerworker.h listenerworker.cpp
 
 )
 
