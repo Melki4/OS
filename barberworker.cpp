@@ -68,91 +68,76 @@ bool BarberWorker::waitForClientResponse(QTcpSocket &socket, QString &response)
 
 void BarberWorker::run() {
     while (true) {
-        qintptr descriptor;
+        qintptr descriptor = -1;
         {
             QMutexLocker locker(&m_mutex);
             if (m_state != Resting) changeState(Idle);
             m_condition.wait(&m_mutex);
             if (m_stop) break;
             descriptor = m_currentSocketDescriptor;
+            m_currentSocketDescriptor = -1;
         }
 
         changeState(Working);
+        if (descriptor == -1) continue;
+
         QTcpSocket socket;
-        if (!socket.setSocketDescriptor(descriptor)) continue;
+        if (!socket.setSocketDescriptor(descriptor)) {
+            continue;
+        }
 
         qInfo() << "Парикмахер" << m_id << "начал обслуживание нового клиента.";
-
-        // 0. Отправляем ID клиента (client.cpp: recv(Connection, (char*)&clientIndex...))
         int clientId = m_clientsServed + 1;
         socket.write((const char*)&clientId, sizeof(int));
         socket.waitForBytesWritten();
 
-        // 1. Отправляем Имя парикмахера (client.cpp: recv(Connection, name, 256, 0))
         QString bName = (m_id == 1) ? "[Парикмахер]" : "[Брат-мясник]";
         QByteArray bNameUtf8 = bName.toUtf8();
         socket.write(bNameUtf8.data(), bNameUtf8.size());
         socket.waitForBytesWritten();
 
-        // 2. Отправляем приветствие (client.cpp: bytes = recv(Connection, buffer, 1024, 0))
         QString greetMsg = m_greetings[0].arg(m_id);
         socket.write(greetMsg.toUtf8());
         socket.waitForBytesWritten();
 
-        // 3. Ждем приветствие от клиента (client.cpp: send(Connection, utf8Greet.c_str()...))
-        if (socket.waitForReadyRead(5000)) {
-            socket.readAll(); // Просто читаем и игнорируем
-        }
+        if (socket.waitForReadyRead(5000)) socket.readAll();
 
-        // 4. Отправляем меню (client.cpp: bytes = recv(Connection, buffer, 1024, 0))
-        QString menu = "Выберите стрижку:\n1. Кроп (1000)\n2. Фейд (1200)\n3. Налысо (500)\n";
+        QString menu = "Выберите стрижку:
+1. Кроп (1000)
+2. Фейд (1200)
+3. Налысо (500)
+";
         socket.write(menu.toUtf8());
         socket.waitForBytesWritten();
 
-        // 5. Ждем выбор (client.cpp: send(Connection, (char*)&choice...))
         int choice = 0;
-        if (socket.waitForReadyRead(30000)) {
-            socket.read((char*)&choice, sizeof(int));
-        }
+        if (socket.waitForReadyRead(30000)) socket.read((char*)&choice, sizeof(int));
         int price = (choice == 3) ? 500 : (choice == 2 ? 1200 : 1000);
-        qInfo() << "Парикмахер" << m_id << "стрижет. Клиент выбрал вариант:" << choice;
 
-        // 6. Отправляем 3 фразы процесса (client.cpp: for(int i=0; i<3; i++) recv(...))
         QStringList flavors = {"Начинаем стрижку...", "Так, получается хорошо...", "Готово! Отличный результат."};
         for (const QString& f : flavors) {
             socket.write(f.toUtf8());
             socket.waitForBytesWritten();
-            QThread::sleep(1); // Имитация работы
+            QThread::sleep(1);
         }
 
-        // 7. Отправляем варианты оплаты (client.cpp: recv(Connection, buffer, 1024, 0))
         QString payMsg = m_farewells[0].arg(price);
         socket.write(payMsg.toUtf8());
         socket.waitForBytesWritten();
 
-        // 8. Ждем метод оплаты (client.cpp: send(Connection, (char*)&method...))
         int method = 0;
-        if (socket.waitForReadyRead(30000)) {
-            socket.read((char*)&method, sizeof(int));
-        }
+        if (socket.waitForReadyRead(30000)) socket.read((char*)&method, sizeof(int));
 
-        // 9. Отправляем прощание (client.cpp: recv(Connection, buffer, 1024, 0))
         socket.write(m_farewells[2].toUtf8());
         socket.waitForBytesWritten();
 
-        // Завершение работы с клиентом
         socket.disconnectFromHost();
         if (socket.state() != QAbstractSocket::UnconnectedState) socket.waitForDisconnected();
 
         emit earnedMoney(price);
         m_clientsServed++;
-
-        // Отдых после 4 клиентов
-        if (m_clientsServed % 4 == 0) {
-            changeState(Resting);
-            qInfo() << "Парикмахер" << m_id << "устал и ушел на перекур.";
-            QThread::sleep(3);
-        }
+        if (m_clientsServed % 4 == 0) { changeState(Resting); QThread::sleep(3);}        
         emit clientFinished(m_id);
     }
 }
+

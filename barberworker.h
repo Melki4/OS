@@ -42,7 +42,7 @@ private:
 
     int m_id;
     State m_state;
-    qintptr m_currentSocketDescriptor;
+    qintptr m_currentSocketDescriptor = -1;
     int m_clientsServed;
 
     QMutex m_mutex;

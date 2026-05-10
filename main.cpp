@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(myMessageOutput);
 
     // 4. Создаем главное окно
-    ServerDialog w;
+    ServerDialog w(&dbManager);
 
     // ВАЖНО: Добавлен &dbManager как третий аргумент (контекст).
     // Это заставит Qt выполнить лямбду строго в главном потоке!
