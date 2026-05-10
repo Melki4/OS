@@ -2,10 +2,12 @@
 #define SERVERDIALOG_H
 
 #include <QDialog>
-#include <QTcpServer>
 #include <QQueue>
 #include <QTimer>
+#include <QThread>
 #include "barberworker.h"
+#include "databasemanager.h"
+#include "listenerworker.h"
 
 namespace Ui { class Dialog; }
 
@@ -14,31 +16,37 @@ class ServerDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ServerDialog(QWidget *parent = nullptr);
+    explicit ServerDialog(DatabaseManager *dbManager, QWidget *parent = nullptr);
     ~ServerDialog();
 
 public slots:
-    void appendLog(const QString &msg); // Для логгера
+    void appendLog(const QString &msg);
 
 private slots:
-    void onNewConnection();
+    void onClientAccepted(qintptr descriptor);
     void assignClients();
     void onBarberFinished(int barberId);
     void onBarberStateChanged(int barberId, const QString &newState);
     void onMoneyEarned(int amount);
     void updateWorkdayProgress();
     void endWorkday();
+    void loadSessionLogs();
 
 private:
+    void fillSessionsCombo();
+
     Ui::Dialog *ui;
-    QTcpServer *m_server;
+    DatabaseManager *m_dbManager;
     QQueue<qintptr> m_clientQueue;
     QList<BarberWorker*> m_barbers;
     QTimer *m_workdayTimer;
 
-    int m_totalClients;
+    QThread *m_listenerThread;
+    ListenerWorker *m_listenerWorker;
+
+    bool m_workdayEnded = false;
     int m_currentCash;
     int m_workdayPercent;
 };
 
-#endif // SERVERDIALOG_H
+#endif

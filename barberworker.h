@@ -24,7 +24,6 @@ public:
 
     void assignClient(qintptr socketDescriptor);
     void stop();
-    int getId() const { return m_id; }
     State getCurrentState() const { return m_state; }
 
 signals:
@@ -38,11 +37,10 @@ protected:
 private:
     void loadData();
     void changeState(State newState);
-    bool waitForClientResponse(QTcpSocket &socket, QString &response);
 
     int m_id;
     State m_state;
-    qintptr m_currentSocketDescriptor;
+    qintptr m_currentSocketDescriptor = -1;
     int m_clientsServed;
 
     QMutex m_mutex;
@@ -54,4 +52,4 @@ private:
     QList<Haircut> m_haircuts;
 };
 
-#endif // BARBERWORKER_H
+#endif
