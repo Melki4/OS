@@ -1,7 +1,7 @@
 CMakeFiles/server_part.dir/server_part_autogen/mocs_compilation.cpp.obj: \
  D:\qt-documents\server_part\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\server_part_autogen\mocs_compilation.cpp \
- D:\qt-documents\server_part\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\server_part_autogen\EWIEGA46WW/moc_barberworker.cpp \
- D:/qt-documents/server_part/barberworker.h \
+ D:\qt-documents\server_part\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\server_part_autogen\EWIEGA46WW/moc_logger.cpp \
+ D:/qt-documents/server_part/logger.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QObject \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qobject.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -323,34 +323,21 @@ CMakeFiles/server_part.dir/server_part_autogen/mocs_compilation.cpp.obj: \
  D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
  D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QThread \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qthread.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qdeadlinetimer.h \
- D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future \
- D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
- D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h \
- D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h \
- D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
- D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
- D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/QTcpSocket \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/qtcpsocket.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/qabstractsocket.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qiodevice.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qspan.h \
- D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/q20iterator.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/qhostaddress.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qshareddata.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QString \
+ D:/qt-documents/server_part/databasemanager.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/QSqlDatabase \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/qsqldatabase.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/qtsqlglobal.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/qtsql-config.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/qtsqlexports.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qmetaobject.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qvariant.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qdebug.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qtextstream.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qcontiguouscache.h \
  D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qsharedpointer.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qshareddata.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
  D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
  D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
@@ -365,24 +352,6 @@ CMakeFiles/server_part.dir/server_part_autogen/mocs_compilation.cpp.obj: \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qalloc.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/q23utility.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/q20utility.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QMutex \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qmutex.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qtsan_impl.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QWaitCondition \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qwaitcondition.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QDeadlineTimer \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QStringList \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qtmochelpers.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qtmocconstants.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/q20algorithm.h \
- D:\qt-documents\server_part\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\server_part_autogen\EWIEGA46WW/moc_databasemanager.cpp \
- D:/qt-documents/server_part/databasemanager.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/QSqlDatabase \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/qsqldatabase.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/qtsqlglobal.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/qtsql-config.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/qtsqlexports.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qmetaobject.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QDebug \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/QSqlQuery \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtSql/qsqlquery.h \
@@ -393,61 +362,8 @@ CMakeFiles/server_part.dir/server_part_autogen/mocs_compilation.cpp.obj: \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qcalendar.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qlocale.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QVariant \
- D:\qt-documents\server_part\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\server_part_autogen\EWIEGA46WW/moc_dialog.cpp \
- D:/qt-documents/server_part/dialog.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtWidgets/QDialog \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qtguiglobal.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qtgui-config.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qtguiexports.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtWidgets/qwidget.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qwindowdefs.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qwindowdefs_win.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qmargins.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qcheckedint_impl.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qaction.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qkeysequence.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qicon.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qsize.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qpixmap.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qpaintdevice.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qrect.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qpoint.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qcolor.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qrgb.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qrgba64.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qimage.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qpixelformat.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qtransform.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qpolygon.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qregion.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qline.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qpalette.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qbrush.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qfont.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qendian.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qfontmetrics.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qfontinfo.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qfontvariableaxis.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtWidgets/qsizepolicy.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qcursor.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtGui/qbitmap.h \
- D:\qt-documents\server_part\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\server_part_autogen\EWIEGA46WW/moc_logger.cpp \
- D:/qt-documents/server_part/logger.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QString \
- D:/qt-documents/server_part/databasemanager.h \
- D:\qt-documents\server_part\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\server_part_autogen\EWIEGA46WW/moc_serverdialog.cpp \
- D:/qt-documents/server_part/serverdialog.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/QTcpServer \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/qtcpserver.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QQueue \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qqueue.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QTimer \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qtimer.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qbasictimer.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qeventloop.h \
- D:/qt-documents/server_part/barberworker.h
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qtmochelpers.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qtmocconstants.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/q20algorithm.h \
+ D:\qt-documents\server_part\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\server_part_autogen\6XT2WHKLRG/moc_databasemanager.cpp \
+ D:/Документы/OS/databasemanager.h

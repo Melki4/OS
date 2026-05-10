@@ -102,10 +102,10 @@ void BarberWorker::run() {
 
         if (socket.waitForReadyRead(5000)) socket.readAll();
 
-        QString menu = "Выберите стрижку:
-1. Кроп (1000)
-2. Фейд (1200)
-3. Налысо (500)
+        QString menu = "Выберите стрижку:\
+1. Кроп (1000)\
+2. Фейд (1200)\
+3. Налысо (500)\
 ";
         socket.write(menu.toUtf8());
         socket.waitForBytesWritten();
