@@ -37,8 +37,8 @@ void BarberWorker::changeState(State newState)
 {
     m_state = newState;
     QString stateStr = (newState == Idle) ? "Ждет клиента" :
-                       (newState == Working) ? "Стрижет" :
-                       (newState == Resting) ? "Отдыхает" : "Ушел";
+                           (newState == Working) ? "Стрижет" :
+                           (newState == Resting) ? "Отдыхает" : "Ушел";
     emit stateChanged(m_id, stateStr);
 }
 
@@ -81,11 +81,11 @@ void BarberWorker::run()
         if (socket.waitForReadyRead(5000)) socket.readAll();
 
         QString menu = "Выберите стрижку:\
-1. Кроп (1000)\
-2. Фейд (1200)\
-3. Налысо (500)\
-";
-        socket.write(menu.toUtf8());
+                       1. Кроп (1000)\
+                       2. Фейд (1200)\
+                       3. Налысо (500)\
+                       ";
+                       socket.write(menu.toUtf8());
         socket.waitForBytesWritten();
 
         int choice = 0;
@@ -114,8 +114,7 @@ void BarberWorker::run()
 
         emit earnedMoney(price);
         m_clientsServed++;
-        if (m_clientsServed % 4 == 0) { changeState(Resting); QThread::sleep(3);}        
+        if (m_clientsServed % 4 == 0) { changeState(Resting); QThread::sleep(3);}
         emit clientFinished(m_id);
     }
 }
-

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QTcpServer>
+#include <QTcpSocket>
 
 class ListenerWorker : public QObject {
     Q_OBJECT

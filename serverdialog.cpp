@@ -5,8 +5,8 @@
 
 ServerDialog::ServerDialog(DatabaseManager *dbManager, QWidget *parent)
     : QDialog(parent), ui(new Ui::Dialog), m_dbManager(dbManager),
-      m_listenerThread(new QThread(this)), m_listenerWorker(new ListenerWorker()),
-      m_currentCash(0), m_workdayPercent(0)
+    m_listenerThread(new QThread(this)), m_listenerWorker(new ListenerWorker()),
+    m_currentCash(0), m_workdayPercent(0)
 {
     ui->setupUi(this);
     ui->text_cash_in_hand->setText("0");

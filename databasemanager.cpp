@@ -22,17 +22,17 @@ bool DatabaseManager::initDb()
 
     // Таблица сессий
     bool sessions = query.exec("CREATE TABLE IF NOT EXISTS Sessions ("
-                          "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                          "date_start DATETIME, "
-                          "date_end DATETIME, "
-                          "total_earned INTEGER DEFAULT 0)");
+                               "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                               "date_start DATETIME, "
+                               "date_end DATETIME, "
+                               "total_earned INTEGER DEFAULT 0)");
 
     bool logs = query.exec("CREATE TABLE IF NOT EXISTS Logs ("
-                          "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                          "session_id INTEGER, "
-                          "timestamp DATETIME, "
-                          "log_text TEXT, "
-                          "FOREIGN KEY(session_id) REFERENCES Sessions(id))");
+                           "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                           "session_id INTEGER, "
+                           "timestamp DATETIME, "
+                           "log_text TEXT, "
+                           "FOREIGN KEY(session_id) REFERENCES Sessions(id))");
 
     if (sessions && logs) {
         qInfo() << "База данных готова к работе.";
