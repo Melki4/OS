@@ -44,7 +44,6 @@ private:
     QThread *m_listenerThread;
     ListenerWorker *m_listenerWorker;
 
-    bool m_workdayEnded = false;
     int m_currentCash;
     int m_workdayPercent;
 };

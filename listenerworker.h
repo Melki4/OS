@@ -4,18 +4,6 @@
 #include <QObject>
 #include <QTcpServer>
 
-class DescriptorServer : public QTcpServer {
-    Q_OBJECT
-public:
-    using QTcpServer::QTcpServer;
-signals:
-    void descriptorAccepted(qintptr descriptor);
-protected:
-    void incomingConnection(qintptr socketDescriptor) override {
-        emit descriptorAccepted(socketDescriptor);
-    }
-};
-
 class ListenerWorker : public QObject {
     Q_OBJECT
 public:
@@ -30,8 +18,11 @@ signals:
     void listenerError(const QString &message);
     void started();
 
+private slots:
+    void onNewConnection();
+
 private:
-    DescriptorServer *m_server = nullptr;
+    QTcpServer *m_server = nullptr;
 };
 
 #endif

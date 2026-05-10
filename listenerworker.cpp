@@ -4,8 +4,8 @@ ListenerWorker::ListenerWorker(QObject *parent) : QObject(parent) {}
 
 void ListenerWorker::startListening(quint16 port) {
     if (!m_server) {
-        m_server = new DescriptorServer(this);
-        connect(m_server, &DescriptorServer::descriptorAccepted, this, &ListenerWorker::clientAccepted);
+        m_server = new QTcpServer(this);
+        connect(m_server, &QTcpServer::newConnection, this, &ListenerWorker::onNewConnection);
     }
 
     if (!m_server->listen(QHostAddress::Any, port)) {
@@ -18,5 +18,14 @@ void ListenerWorker::startListening(quint16 port) {
 void ListenerWorker::stopListening() {
     if (m_server && m_server->isListening()) {
         m_server->close();
+    }
+}
+
+void ListenerWorker::onNewConnection() {
+    while (m_server->hasPendingConnections()) {
+        QTcpSocket *socket = m_server->nextPendingConnection();
+        const qintptr descriptor = socket->socketDescriptor();
+        socket->deleteLater();
+        emit clientAccepted(descriptor);
     }
 }

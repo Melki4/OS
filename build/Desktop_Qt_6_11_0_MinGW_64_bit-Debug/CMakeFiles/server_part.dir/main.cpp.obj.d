@@ -411,6 +411,8 @@ CMakeFiles/server_part.dir/main.cpp.obj: \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qqueue.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QTimer \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qtimer.h \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/QTcpSocket \
+ D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/qtcpsocket.h \
  D:\qt-documents\server_part\barberworker.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QObject \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QThread \
@@ -422,8 +424,6 @@ CMakeFiles/server_part.dir/main.cpp.obj: \
  D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
  D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
  D:/Qt-freamwork/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/QTcpSocket \
- D:/Qt-freamwork/6.11.0/mingw_64/include/QtNetwork/qtcpsocket.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/QMutex \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qmutex.h \
  D:/Qt-freamwork/6.11.0/mingw_64/include/QtCore/qtsan_impl.h \

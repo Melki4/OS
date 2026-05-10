@@ -47,16 +47,6 @@ ServerDialog::~ServerDialog() {
 
 void ServerDialog::onClientAccepted(qintptr descriptor) {
     m_clientQueue.enqueue(descriptor);
-
-    if (m_clientQueue.size() > 2 && m_barbers.size() == 1) {
-        BarberWorker *b2 = new BarberWorker(2, this);
-        connect(b2, &BarberWorker::stateChanged, this, &ServerDialog::onBarberStateChanged);
-        connect(b2, &BarberWorker::clientFinished, this, &ServerDialog::onBarberFinished);
-        connect(b2, &BarberWorker::earnedMoney, this, &ServerDialog::onMoneyEarned);
-        m_barbers.append(b2);
-        b2->start();
-        qInfo() << "В очереди больше 2 клиентов: подключен второй парикмахер";
-    }
     ui->clients_amount->setText(QString::number(m_clientQueue.size()));
     assignClients();
 }
@@ -65,8 +55,7 @@ void ServerDialog::assignClients() {
     for (auto barber : m_barbers) {
         if (m_clientQueue.isEmpty()) break;
         if (barber->getCurrentState() == BarberWorker::Idle) {
-            qintptr descriptor = m_clientQueue.dequeue();
-            barber->assignClient(descriptor);
+            barber->assignClient(m_clientQueue.dequeue());
         }
     }
     ui->clients_amount->setText(QString::number(m_clientQueue.size()));
@@ -91,8 +80,6 @@ void ServerDialog::updateWorkdayProgress() {
 }
 
 void ServerDialog::endWorkday() {
-    if (m_workdayEnded) return;
-    m_workdayEnded = true;
     if (m_workdayTimer && m_workdayTimer->isActive()) m_workdayTimer->stop();
 
     if (m_listenerWorker) {
